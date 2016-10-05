@@ -1,0 +1,657 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"57D1272C00AA"
+    enforceClosureAutoLoad 	FALSE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	0
+	gridY      	0
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    charSet    	204
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"57D1272C00AC"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list
+	    (object Class "Клиент"
+		quid       	"57D12779016A"
+		stereotype 	"Actor")
+	    (object UseCase "Добавить новый заказ"
+		quid       	"57D128210355"
+		documentation 	"ffff")
+	    (object UseCase "Просмотреть каталог дисков"
+		quid       	"57D129AD0367"
+		visible_modules 	(list dependency_list
+		    (object Dependency_Relationship
+			quid       	"57DA6AB300F6"
+			stereotype 	"include"
+			supplier   	"Use Case View::Добавить диск в каталог"
+			quidu      	"57DA6A5000C9")
+		    (object Dependency_Relationship
+			quid       	"57DA6AB50382"
+			stereotype 	"include"
+			supplier   	"Use Case View::Удалить диск с каталога"
+			quidu      	"57DA6A690294")
+		    (object Dependency_Relationship
+			quid       	"57DA6AB8018A"
+			stereotype 	"include"
+			supplier   	"Use Case View::Сохранить изменения"
+			quidu      	"57DA6A75035C")
+		    (object Dependency_Relationship
+			quid       	"57DA6ABA008D"
+			stereotype 	"include"
+			supplier   	"Use Case View::Закрыть каталог"
+			quidu      	"57DA6AA40310")))
+	    (object UseCase "Добавить диск в каталог"
+		quid       	"57DA6A5000C9")
+	    (object UseCase "Удалить диск с каталога"
+		quid       	"57DA6A690294")
+	    (object UseCase "Сохранить изменения"
+		quid       	"57DA6A75035C")
+	    (object UseCase "Закрыть каталог"
+		quid       	"57DA6AA40310")
+	    (object Association "$UNNAMED$0"
+		quid       	"57D128CD02C5"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"57D128CE02FC"
+			supplier   	"Use Case View::Добавить новый заказ"
+			quidu      	"57D128210355"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"57D128CE02FE"
+			supplier   	"Use Case View::Клиент"
+			quidu      	"57D12779016A")))
+	    (object Association "$UNNAMED$3"
+		quid       	"57D129D103BD"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"57D129D2026C"
+			supplier   	"Use Case View::Просмотреть каталог дисков"
+			quidu      	"57D129AD0367"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"57D129D2026E"
+			supplier   	"Use Case View::Клиент"
+			quidu      	"57D12779016A")))
+	    (object Class_Category "NewPackage"
+		quid       	"57D1280300DD"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list))
+	    (object Class_Category "Просмотреть каталог"
+		quid       	"57DA68AA0269"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list)))
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"57D1272C00B5"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object NoteView @1
+			location   	(2171, 1011)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1
+			    location   	(1568, 36)
+			    fill_color 	13434879
+			    nlines     	39
+			    max_width  	1170
+			    justify    	1
+			    label      	
+|Прецидент: Система автоматизации для пункта проката дисков
+|
+|ID: 8600
+|
+|Краткое описание:
+|-Система имеет каталог дисков, клиент выбирая диск заполняя поля с личными данными берет диск на отведенный срок.
+|
+|Главный актер: 
+|-Клиент пункта проката
+|
+|Актеры второго плана:
+|-Отсутствуют
+|
+|Предпосылка:
+|-Имея денежные средства зайти в пункт проката дисков
+|
+|Основной поток:
+|1. Открытие каталога
+|2. Поиск необходимого диска(имеется либо нет в наличии)
+|    2.1 Альтернативный поток "a"
+|    2.2 Альтернативный поток "b"
+|    2.3 Альтернативный поток "c"
+|3. Открытие окна "Нового заказа" с полями
+|Имя, Фамилия, Контактный номер, Название фильма, Стоимость, Период аренды.
+|4. Сохранение заказа в базе данных
+|    4.1 Альтернативный поток "d"
+|5. Вывод заказа таблице дисков находящихся в аренде
+|
+|Альтернативный поток:
+|a. Необходимого диска нет наличии
+|b. Необходимого диска нет в ассортименте
+|с. Недостаточное количество денежных средств
+|d. При неудачном сохранении выдать сообщение о повторной попытке сохранения.
+			    )
+			line_color 	65535
+			fill_color 	13434879
+			width      	1230
+			height     	1962)
+		    (object UseCaseView "Use Case View::Добавить новый заказ" @2
+			location   	(553, 218)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(553, 356)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Добавить новый заказ")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57D128210355"
+			height     	118)
+		    (object UseCaseView "Use Case View::Просмотреть каталог дисков" @3
+			location   	(828, 587)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(828, 725)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Просмотреть каталог дисков")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57D129AD0367"
+			height     	118)
+		    (object ClassView "Class" "Use Case View::Клиент" @4
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(220, 539)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(220, 699)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	325
+			    justify    	0
+			    label      	"Клиент")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"57D12779016A"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$0" @5
+			location   	(331, 431)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"57D128CD02C5"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$1" @6
+				Parent_View 	@5
+				location   	(1, 138)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D128CE02FC"
+				client     	@5
+				supplier   	@2
+				vertices   	(list Points
+				    (331, 431)
+				    (384, 381))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$2" @7
+				Parent_View 	@5
+				location   	(1, 138)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D128CE02FE"
+				client     	@5
+				supplier   	@4
+				vertices   	(list Points
+				    (331, 431)
+				    (277, 481))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$3" @8
+			location   	(497, 557)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"57D129D103BD"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$4" @9
+				Parent_View 	@8
+				location   	(167, 265)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D129D2026C"
+				client     	@8
+				supplier   	@3
+				vertices   	(list Points
+				    (497, 557)
+				    (718, 573))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$5" @10
+				Parent_View 	@8
+				location   	(167, 265)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D129D2026E"
+				client     	@8
+				supplier   	@4
+				vertices   	(list Points
+				    (497, 557)
+				    (277, 541))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::Добавить диск в каталог" @11
+			location   	(222, 874)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@11
+			    location   	(222, 1012)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Добавить диск в каталог")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A5000C9"
+			height     	118)
+		    (object UseCaseView "Use Case View::Удалить диск с каталога" @12
+			location   	(1212, 959)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@12
+			    location   	(1212, 1097)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Удалить диск с каталога")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A690294"
+			height     	118)
+		    (object UseCaseView "Use Case View::Сохранить изменения" @13
+			location   	(425, 1118)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@13
+			    location   	(425, 1256)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Сохранить изменения")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A75035C"
+			height     	118)
+		    (object UseCaseView "Use Case View::Закрыть каталог" @14
+			location   	(806, 1121)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@14
+			    location   	(806, 1259)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Закрыть каталог")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6AA40310"
+			height     	118)
+		    (object DependencyView "" @15
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @16
+			    Parent_View 	@15
+			    location   	(370, 752)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.738028
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			quidu      	"57DA6AB300F6"
+			client     	@3
+			supplier   	@11
+			vertices   	(list Points
+			    (507, 737)
+			    (330, 819))
+			line_style 	0)
+		    (object DependencyView "" @17
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @18
+			    Parent_View 	@17
+			    location   	(1082, 794)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.425638
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6AB50382"
+			client     	@3
+			supplier   	@12
+			vertices   	(list Points
+			    (996, 750)
+			    (1150, 900))
+			line_style 	0)
+		    (object DependencyView "" @19
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @20
+			    Parent_View 	@19
+			    location   	(598, 914)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.502544
+			    height     	16
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6AB8018A"
+			client     	@3
+			supplier   	@13
+			vertices   	(list Points
+			    (704, 750)
+			    (465, 1060))
+			line_style 	0)
+		    (object DependencyView "" @21
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @22
+			    Parent_View 	@21
+			    location   	(868, 995)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.776003
+			    height     	58
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6ABA008D"
+			client     	@3
+			supplier   	@14
+			vertices   	(list Points
+			    (819, 750)
+			    (807, 1063))
+			line_style 	0)))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"57D1272C00AB"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"57D1272C00AD"
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"57D1272C00B1"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"57D1272C00AD"
+	physical_models 	(list unit_reference_list
+	    (object module "NewSubprogBody" "SubType" "Body"
+		quid       	"57E39B100381"
+		stereotype 	"Subprogram Body"
+		language   	""))
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"57D1272C00B4"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list)))
+	category   	"Logical View"
+	quidu      	"57D1272C00AB")
+    process_structure 	(object Processes
+	quid       	"57D1272C00AE"
+	ProcsNDevs 	(list
+	    (object Processor "NewProcessor"
+		quid       	"57E39BCE0060"
+		characteristics 	""
+		scheduling 	"Preemptive"
+		processes  	(list processes))
+	    (object Process_Diagram "Deployment View"
+		quid       	"57D1272C00B0"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	quid       	"57D1272C00AF"))

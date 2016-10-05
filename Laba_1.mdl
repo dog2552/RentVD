@@ -1,0 +1,1599 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"57D1272C00AA"
+    enforceClosureAutoLoad 	FALSE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	0
+	gridY      	0
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    charSet    	204
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"57D1272C00AC"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list
+	    (object Class "Клиент"
+		quid       	"57D12779016A"
+		stereotype 	"Actor"
+		operations 	(list Operations
+		    (object Operation "opname"
+			quid       	"57E3A0590212"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object UseCase "Добавить новый заказ"
+		quid       	"57D128210355"
+		documentation 	"ffff")
+	    (object UseCase "Просмотреть каталог дисков"
+		quid       	"57D129AD0367"
+		visible_modules 	(list dependency_list
+		    (object Dependency_Relationship
+			quid       	"57DA6AB300F6"
+			stereotype 	"include"
+			supplier   	"Use Case View::Добавить диск в каталог"
+			quidu      	"57DA6A5000C9")
+		    (object Dependency_Relationship
+			quid       	"57DA6AB50382"
+			stereotype 	"include"
+			supplier   	"Use Case View::Удалить диск с каталога"
+			quidu      	"57DA6A690294")
+		    (object Dependency_Relationship
+			quid       	"57DA6AB8018A"
+			stereotype 	"include"
+			supplier   	"Use Case View::Сохранить изменения"
+			quidu      	"57DA6A75035C")
+		    (object Dependency_Relationship
+			quid       	"57DA6ABA008D"
+			stereotype 	"include"
+			supplier   	"Use Case View::Закрыть каталог"
+			quidu      	"57DA6AA40310")))
+	    (object UseCase "Добавить диск в каталог"
+		quid       	"57DA6A5000C9")
+	    (object UseCase "Удалить диск с каталога"
+		quid       	"57DA6A690294")
+	    (object UseCase "Сохранить изменения"
+		quid       	"57DA6A75035C")
+	    (object UseCase "Закрыть каталог"
+		quid       	"57DA6AA40310")
+	    (object Association "$UNNAMED$0"
+		quid       	"57D128CD02C5"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"57D128CE02FC"
+			supplier   	"Use Case View::Добавить новый заказ"
+			quidu      	"57D128210355"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"57D128CE02FE"
+			supplier   	"Use Case View::Клиент"
+			quidu      	"57D12779016A")))
+	    (object Association "$UNNAMED$3"
+		quid       	"57D129D103BD"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"57D129D2026C"
+			supplier   	"Use Case View::Просмотреть каталог дисков"
+			quidu      	"57D129AD0367"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"57D129D2026E"
+			supplier   	"Use Case View::Клиент"
+			quidu      	"57D12779016A")))
+	    (object Class_Category "NewPackage"
+		quid       	"57D1280300DD"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list))
+	    (object Class_Category "Просмотреть каталог"
+		quid       	"57DA68AA0269"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list)))
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"57D1272C00B5"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object NoteView @1
+			location   	(2171, 1011)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1
+			    location   	(1568, 36)
+			    fill_color 	13434879
+			    nlines     	39
+			    max_width  	1170
+			    justify    	1
+			    label      	
+|Прецидент: Система автоматизации для пункта проката дисков
+|
+|ID: 8600
+|
+|Краткое описание:
+|-Система имеет каталог дисков, клиент выбирая диск заполняя поля с личными данными берет диск на отведенный срок.
+|
+|Главный актер: 
+|-Клиент пункта проката
+|
+|Актеры второго плана:
+|-Отсутствуют
+|
+|Предпосылка:
+|-Имея денежные средства зайти в пункт проката дисков
+|
+|Основной поток:
+|1. Открытие каталога
+|2. Поиск необходимого диска(имеется либо нет в наличии)
+|    2.1 Альтернативный поток "a"
+|    2.2 Альтернативный поток "b"
+|    2.3 Альтернативный поток "c"
+|3. Открытие окна "Нового заказа" с полями
+|Имя, Фамилия, Контактный номер, Название фильма, Стоимость, Период аренды.
+|4. Сохранение заказа в базе данных
+|    4.1 Альтернативный поток "d"
+|5. Вывод заказа таблице дисков находящихся в аренде
+|
+|Альтернативный поток:
+|a. Необходимого диска нет наличии
+|b. Необходимого диска нет в ассортименте
+|с. Недостаточное количество денежных средств
+|d. При неудачном сохранении выдать сообщение о повторной попытке сохранения.
+			    )
+			line_color 	65535
+			fill_color 	13434879
+			width      	1230
+			height     	1962)
+		    (object UseCaseView "Use Case View::Добавить новый заказ" @2
+			location   	(553, 218)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(553, 356)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Добавить новый заказ")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57D128210355"
+			height     	118)
+		    (object UseCaseView "Use Case View::Просмотреть каталог дисков" @3
+			location   	(828, 587)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(828, 725)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Просмотреть каталог дисков")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57D129AD0367"
+			height     	118)
+		    (object ClassView "Class" "Use Case View::Клиент" @4
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(220, 539)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(220, 699)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	325
+			    justify    	0
+			    label      	"Клиент")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"57D12779016A"
+			compartment 	(object Compartment
+			    Parent_View 	@4
+			    location   	(218, 740)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	2
+			    max_width  	2
+			    justify    	0)
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$0" @5
+			location   	(331, 431)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"57D128CD02C5"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$1" @6
+				Parent_View 	@5
+				location   	(1, 138)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D128CE02FC"
+				client     	@5
+				supplier   	@2
+				vertices   	(list Points
+				    (331, 431)
+				    (384, 381))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$2" @7
+				Parent_View 	@5
+				location   	(1, 138)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D128CE02FE"
+				client     	@5
+				supplier   	@4
+				vertices   	(list Points
+				    (331, 431)
+				    (277, 481))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$3" @8
+			location   	(497, 557)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"57D129D103BD"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$4" @9
+				Parent_View 	@8
+				location   	(167, 265)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D129D2026C"
+				client     	@8
+				supplier   	@3
+				vertices   	(list Points
+				    (497, 557)
+				    (718, 573))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$5" @10
+				Parent_View 	@8
+				location   	(167, 265)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"57D129D2026E"
+				client     	@8
+				supplier   	@4
+				vertices   	(list Points
+				    (497, 557)
+				    (277, 541))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::Добавить диск в каталог" @11
+			location   	(222, 874)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@11
+			    location   	(222, 1012)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Добавить диск в каталог")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A5000C9"
+			height     	118)
+		    (object UseCaseView "Use Case View::Удалить диск с каталога" @12
+			location   	(1212, 959)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@12
+			    location   	(1212, 1097)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Удалить диск с каталога")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A690294"
+			height     	118)
+		    (object UseCaseView "Use Case View::Сохранить изменения" @13
+			location   	(425, 1118)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@13
+			    location   	(425, 1256)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Сохранить изменения")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6A75035C"
+			height     	118)
+		    (object UseCaseView "Use Case View::Закрыть каталог" @14
+			location   	(806, 1121)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@14
+			    location   	(806, 1259)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Закрыть каталог")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57DA6AA40310"
+			height     	118)
+		    (object DependencyView "" @15
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @16
+			    Parent_View 	@15
+			    location   	(370, 752)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.738028
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			quidu      	"57DA6AB300F6"
+			client     	@3
+			supplier   	@11
+			vertices   	(list Points
+			    (507, 737)
+			    (330, 819))
+			line_style 	0)
+		    (object DependencyView "" @17
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @18
+			    Parent_View 	@17
+			    location   	(1082, 794)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.425638
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6AB50382"
+			client     	@3
+			supplier   	@12
+			vertices   	(list Points
+			    (996, 750)
+			    (1150, 900))
+			line_style 	0)
+		    (object DependencyView "" @19
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @20
+			    Parent_View 	@19
+			    location   	(598, 914)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.502544
+			    height     	16
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6AB8018A"
+			client     	@3
+			supplier   	@13
+			vertices   	(list Points
+			    (704, 750)
+			    (465, 1060))
+			line_style 	0)
+		    (object DependencyView "" @21
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	(object SegLabel @22
+			    Parent_View 	@21
+			    location   	(868, 995)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	10
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"<<include>>"
+			    pctDist    	0.776003
+			    height     	58
+			    orientation 	0)
+			line_color 	3342489
+			quidu      	"57DA6ABA008D"
+			client     	@3
+			supplier   	@14
+			vertices   	(list Points
+			    (819, 750)
+			    (807, 1063))
+			line_style 	0)))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"57D1272C00AB"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"57D1272C00AD"
+	logical_models 	(list unit_reference_list
+	    (object Mechanism @23
+		logical_models 	(list unit_reference_list
+		    (object Object "Актер"
+			quid       	"57E3A0860286"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"57E3A0BA012A"
+				supplier   	"Главное окно RentVD"
+				quidu      	"57E3A0AE00B1"
+				messages   	(list Messages
+				    (object Message "Открыть RentVD"
+					quid       	"57E3A0BA012B"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "Нажать \"Сохранить\""
+					quid       	"57E3A7B70189"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"8"
+					ordinal    	9
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"57E3A168016D"
+				supplier   	
+|Окно "Каталог"
+				
+				quidu      	"57E3A14F01A5"
+				messages   	(list Messages
+				    (object Message "Открыть каталог с дисками"
+					quid       	"57E3A168016E"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	2
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"57E3A1A900A8"
+				supplier   	"$UNNAMED$6"
+				quidu      	"57E3A0EA0235"
+				messages   	(list Messages
+				    (object Message "Ввести данные Имя,Фамилия, Контактный номер\\
+ Название фильма, Срок аренды Стоимость"
+					quid       	"57E3A1A900A9"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"5"
+					ordinal    	5
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"57E3A3EC00A7"
+				supplier   	"Окно добавления нового заказа"
+				quidu      	"57E3A0EA0235"
+				messages   	(list Messages
+				    (object Message "Нажать кнопку \"Добавить\""
+					quid       	"57E3A3EC00A8"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"6"
+					ordinal    	6
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "Подтвердить \"Правила аренды дисков\""
+					quid       	"57E3A5810109"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"7"
+					ordinal    	7
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			class      	"Use Case View::Клиент"
+			quidu      	"57D12779016A"
+			persistence 	"Transient"
+			creationObj 	TRUE
+			multi      	FALSE)
+		    (object Object "Главное окно RentVD"
+			quid       	"57E3A0AE00B1"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"57E3A10503DE"
+				supplier   	"Окно добавления нового заказа"
+				quidu      	"57E3A0EA0235"
+				messages   	(list Messages
+				    (object Message "Открыть форму нового заказа"
+					quid       	"57E3A10503DF"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1.1"
+					ordinal    	1
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "Вернуть введенные данные \\
+в таблицу заказов за сеанс в первую форму"
+					quid       	"57E3A69B0177"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"7.1"
+					ordinal    	8
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"57E3A7E002BE"
+				supplier   	"Главное окно RentVD"
+				quidu      	"57E3A0AE00B1"
+				messages   	(list Messages
+				    (object Message "Сохранить заказы за сеанс в файл"
+					quid       	"57E3A7E002BF"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"8.1"
+					ordinal    	10
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	TRUE
+			multi      	FALSE)
+		    (object Object "Окно добавления нового заказа"
+			quid       	"57E3A0EA0235"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"57E3A39E0355"
+				supplier   	
+|Окно "Каталог"
+				
+				quidu      	"57E3A14F01A5"
+				messages   	(list Messages
+				    (object Message "Открыть форму \"Каталог\""
+					quid       	"57E3A39E0356"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"3"
+					ordinal    	3
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "Загрузить каталог из файла"
+					quid       	"57E3A3B6037D"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"4"
+					ordinal    	4
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"57E3A46A03E0"
+				supplier   	"$UNNAMED$6"
+				quidu      	"57E3A0EA0235"))
+			persistence 	"Transient"
+			creationObj 	TRUE
+			multi      	FALSE)
+		    (object Object "Окно \"Каталог\""
+			quid       	"57E3A14F01A5"
+			persistence 	"Transient"
+			creationObj 	TRUE
+			multi      	FALSE))))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"57D1272C00B1"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))
+	    (object InteractionDiagram "Active"
+		mechanism_ref 	@23
+		quid       	"57E39E010324"
+		title      	"Active"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "Актер" @24
+			location   	(173, 375)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@24
+			    location   	(173, 400)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	275
+			    justify    	0
+			    label      	"Актер")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57E3A0860286"
+			width      	286
+			height     	1739
+			icon_height 	162
+			icon_width 	120
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @25
+			    location   	(173, 455)
+			    line_color 	3342489
+			    InterObjView 	@24
+			    height     	213
+			    y_coord    	123
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @26
+			    location   	(173, 893)
+			    line_color 	3342489
+			    InterObjView 	@24
+			    height     	405
+			    y_coord    	315
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @27
+			    location   	(173, 1405)
+			    line_color 	3342489
+			    InterObjView 	@24
+			    height     	274
+			    y_coord    	184
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @28
+			    location   	(173, 1804)
+			    line_color 	3342489
+			    InterObjView 	@24
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "Главное окно RentVD" @29
+			location   	(737, 296)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@29
+			    location   	(737, 296)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Главное окно RentVD")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57E3A0AE00B1"
+			width      	300
+			height     	1818
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @30
+			    location   	(737, 376)
+			    line_color 	3342489
+			    InterObjView 	@29
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @31
+			    location   	(737, 578)
+			    line_color 	3342489
+			    InterObjView 	@29
+			    height     	300
+			    y_coord    	210
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @32
+			    location   	(737, 1694)
+			    line_color 	3342489
+			    InterObjView 	@29
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @33
+			    location   	(737, 1804)
+			    line_color 	3342489
+			    InterObjView 	@29
+			    height     	195
+			    y_coord    	105
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @34
+			    location   	(737, 1934)
+			    line_color 	3342489
+			    InterObjView 	@29
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "Окно добавления нового заказа" @35
+			location   	(1865, 259)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@35
+			    location   	(1865, 259)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	400
+			    justify    	0
+			    label      	"Окно добавления нового заказа")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57E3A0EA0235"
+			width      	418
+			height     	1855
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @36
+			    location   	(1865, 339)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @37
+			    location   	(1865, 788)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @38
+			    location   	(1865, 998)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	195
+			    y_coord    	105
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @39
+			    location   	(1865, 1208)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @40
+			    location   	(1865, 1405)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	244
+			    y_coord    	154
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @41
+			    location   	(1865, 1589)
+			    line_color 	3342489
+			    InterObjView 	@35
+			    height     	195
+			    y_coord    	105
+			    Nested     	TRUE))
+		    (object InterObjView "Окно \"Каталог\"" @42
+			location   	(2720, 262)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@42
+			    location   	(2720, 262)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	
+|Окно "Каталог"
+			    )
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"57E3A14F01A5"
+			width      	300
+			height     	1852
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @43
+			    location   	(2720, 342)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @44
+			    location   	(2720, 893)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	165
+			    y_coord    	75
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @45
+			    location   	(2720, 998)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	165
+			    y_coord    	75
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @46
+			    location   	(2720, 1103)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterMessView "Открыть RentVD" @47
+			location   	(0, 578)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @48
+			    Parent_View 	@47
+			    location   	(454, 534)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A0BA012B"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	368
+			    justify    	0
+			    label      	"Открыть RentVD"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@24
+			supplier   	@29
+			Focus_Src  	@25
+			Focus_Entry 	@31
+			origin     	(188, 578)
+			terminus   	(721, 578)
+			ordinal    	0)
+		    (object InterMessView "Открыть форму нового заказа" @49
+			location   	(0, 788)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @50
+			    Parent_View 	@49
+			    location   	(1300, 744)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A10503DF"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	618
+			    justify    	0
+			    label      	"Открыть форму нового заказа"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@29
+			supplier   	@35
+			Focus_Src  	@31
+			Focus_Entry 	@37
+			origin     	(752, 788)
+			terminus   	(1849, 788)
+			ordinal    	1)
+		    (object InterMessView "Открыть каталог с дисками" @51
+			location   	(0, 893)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @52
+			    Parent_View 	@51
+			    location   	(1446, 938)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A168016E"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	574
+			    justify    	0
+			    label      	"Открыть каталог с дисками"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@24
+			supplier   	@42
+			Focus_Src  	@26
+			Focus_Entry 	@44
+			origin     	(188, 893)
+			terminus   	(2704, 893)
+			ordinal    	2)
+		    (object InterMessView "Ввести данные Имя,Фамилия, Контактный номер
+ Название фильма, Срок аренды Стоимость" @53
+			location   	(0, 1208)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @54
+			    Parent_View 	@53
+			    location   	(1011, 1265)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A1A900A9"
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	990
+			    justify    	0
+			    label      	
+|Ввести данные Имя,Фамилия, Контактный номер
+| Название фильма, Срок аренды Стоимость
+			    
+			    pctDist    	0.495763
+			    height     	57
+			    orientation 	1)
+			line_color 	3342489
+			client     	@24
+			supplier   	@35
+			Focus_Src  	@26
+			Focus_Entry 	@39
+			origin     	(188, 1208)
+			terminus   	(1849, 1208)
+			ordinal    	5)
+		    (object InterMessView "Открыть форму \"Каталог\"" @55
+			location   	(0, 998)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @56
+			    Parent_View 	@55
+			    location   	(2292, 954)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A39E0356"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	540
+			    justify    	0
+			    label      	
+|Открыть форму "Каталог"
+			    
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@35
+			supplier   	@42
+			Focus_Src  	@38
+			Focus_Entry 	@45
+			origin     	(1880, 998)
+			terminus   	(2704, 998)
+			ordinal    	3)
+		    (object InterMessView "Загрузить каталог из файла" @57
+			location   	(0, 1103)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @58
+			    Parent_View 	@57
+			    location   	(2290, 1060)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A3B6037D"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	580
+			    justify    	0
+			    label      	"Загрузить каталог из файла"
+			    pctDist    	0.498328
+			    height     	44
+			    orientation 	0)
+			line_color 	3342489
+			client     	@35
+			supplier   	@42
+			Focus_Src  	@38
+			Focus_Entry 	@46
+			origin     	(1880, 1103)
+			terminus   	(2704, 1103)
+			ordinal    	4)
+		    (object InterMessView "Нажать кнопку \"Добавить\"" @59
+			location   	(0, 1405)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @60
+			    Parent_View 	@59
+			    location   	(1016, 1450)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A3EC00A8"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	558
+			    justify    	0
+			    label      	
+|Нажать кнопку "Добавить"
+			    
+			    pctDist    	0.498755
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@24
+			supplier   	@35
+			Focus_Src  	@27
+			Focus_Entry 	@40
+			origin     	(188, 1405)
+			terminus   	(1849, 1405)
+			ordinal    	6)
+		    (object InterMessView "Подтвердить \"Правила аренды дисков\"" @61
+			location   	(0, 1589)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @62
+			    Parent_View 	@61
+			    location   	(1018, 1545)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A5810109"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	794
+			    justify    	0
+			    label      	
+|Подтвердить "Правила аренды дисков"
+			    
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@24
+			supplier   	@35
+			Focus_Src  	@27
+			Focus_Entry 	@41
+			origin     	(188, 1589)
+			terminus   	(1849, 1589)
+			ordinal    	7)
+		    (object InterMessView "Вернуть введенные данные 
+в таблицу заказов за сеанс в первую форму" @63
+			location   	(0, 1694)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @64
+			    Parent_View 	@63
+			    location   	(1302, 1691)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A69B0177"
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	838
+			    justify    	0
+			    label      	
+|Вернуть введенные данные 
+|в таблицу заказов за сеанс в первую форму
+			    
+			    pctDist    	0.499488
+			    height     	4
+			    orientation 	1)
+			line_color 	3342489
+			client     	@35
+			supplier   	@29
+			Focus_Src  	@41
+			Focus_Entry 	@32
+			origin     	(1849, 1694)
+			terminus   	(753, 1694)
+			ordinal    	8)
+		    (object InterMessView "Нажать \"Сохранить\"" @65
+			location   	(0, 1804)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @66
+			    Parent_View 	@65
+			    location   	(454, 1760)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A7B70189"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	465
+			    justify    	0
+			    label      	
+|Нажать "Сохранить"
+			    
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@24
+			supplier   	@29
+			Focus_Src  	@28
+			Focus_Entry 	@33
+			origin     	(188, 1804)
+			terminus   	(721, 1804)
+			ordinal    	9)
+		    (object SelfMessView "Сохранить заказы за сеанс в файл" @67
+			location   	(0, 1909)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @68
+			    Parent_View 	@67
+			    location   	(1138, 1982)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"57E3A7E002BF"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	719
+			    justify    	0
+			    label      	"Сохранить заказы за сеанс в файл"
+			    pctDist    	2.573333
+			    height     	73
+			    orientation 	1)
+			line_color 	3342489
+			client     	@29
+			supplier   	@29
+			Focus_Src  	@33
+			Focus_Entry 	@34
+			origin     	(753, 1909)
+			terminus   	(903, 1909)
+			ordinal    	10)))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"57D1272C00AD"
+	physical_models 	(list unit_reference_list
+	    (object module "NewSubprogBody" "SubType" "Body"
+		quid       	"57E39B100381"
+		stereotype 	"Subprogram Body"
+		language   	""))
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"57D1272C00B4"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list)))
+	category   	"Logical View"
+	quidu      	"57D1272C00AB")
+    process_structure 	(object Processes
+	quid       	"57D1272C00AE"
+	ProcsNDevs 	(list
+	    (object Processor "NewProcessor"
+		quid       	"57E39BCE0060"
+		characteristics 	""
+		scheduling 	"Preemptive"
+		processes  	(list processes))
+	    (object Process_Diagram "Deployment View"
+		quid       	"57D1272C00B0"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	quid       	"57D1272C00AF"))
